@@ -105,9 +105,24 @@ class SearchViewController: UIViewController {
     
     @IBAction func searchBtnClick(_ sender: Any) {
         guard let platform = platformBtn.title(for: .normal) else { return }
+        var platformNum = String()
+        switch platform {
+        case "PC": platformNum = "5"
+        case "XBOX": platformNum = "1"
+        case "PSN": platformNum = "2"
+        default:
+            break
+        }
 //        guard let season = seasonBtn.title(for: .normal) else { return }
         guard let id = textField.text else { return }
-//        print("platform = \(platform), season = \(season), id = \(id)")
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let resultViewController = self.storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
+        
+        resultViewController.id = id
+        resultViewController.platform = platformNum
+        
+        self.navigationController?.pushViewController(resultViewController, animated: true)
     }
     
 }

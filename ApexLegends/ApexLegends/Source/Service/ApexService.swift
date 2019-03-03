@@ -31,7 +31,7 @@ struct ApexService: ApexServiceType {
                 case .success(let value) :
                     do {
                         let decodableValue = try JSONDecoder().decode(Apex.self, from: value)
-                        print("aa = \(decodableValue)")
+//                        print("aa = \(decodableValue)")
                         completion(Result.success(decodableValue))
                     } catch {
                         completion(.failure(nil, error))

@@ -17,6 +17,7 @@
 		87BA5CF3222A6BDE0077BAB9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA5CF2222A6BDE0077BAB9 /* SearchViewController.swift */; };
 		87BA5CF6222A74410077BAB9 /* PlatformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA5CF5222A74410077BAB9 /* PlatformViewController.swift */; };
 		87BA5CF9222BA8CF0077BAB9 /* SeasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA5CF8222BA8CF0077BAB9 /* SeasonViewController.swift */; };
+		87BA5CFB222BB4CA0077BAB9 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA5CFA222BB4CA0077BAB9 /* ResultViewController.swift */; };
 		D43CEBDB171DE73B784CC3E3 /* Pods_ApexLegends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD955DC182F6305D5D1EB0D7 /* Pods_ApexLegends.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		87BA5CF2222A6BDE0077BAB9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		87BA5CF5222A74410077BAB9 /* PlatformViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformViewController.swift; sourceTree = "<group>"; };
 		87BA5CF8222BA8CF0077BAB9 /* SeasonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonViewController.swift; sourceTree = "<group>"; };
+		87BA5CFA222BB4CA0077BAB9 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		AA50BD73B99AC1D603BDF836 /* Pods-ApexLegends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApexLegends.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApexLegends/Pods-ApexLegends.debug.xcconfig"; sourceTree = "<group>"; };
 		AD955DC182F6305D5D1EB0D7 /* Pods_ApexLegends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ApexLegends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -152,6 +154,7 @@
 		87BA5CF0222A6BAF0077BAB9 /* ResultViewController */ = {
 			isa = PBXGroup;
 			children = (
+				87BA5CFA222BB4CA0077BAB9 /* ResultViewController.swift */,
 			);
 			path = ResultViewController;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				87BA5CF3222A6BDE0077BAB9 /* SearchViewController.swift in Sources */,
 				87BA5CF6222A74410077BAB9 /* PlatformViewController.swift in Sources */,
 				87BA5CEB222A6B940077BAB9 /* Apex.swift in Sources */,
+				87BA5CFB222BB4CA0077BAB9 /* ResultViewController.swift in Sources */,
 				87BA5CF9222BA8CF0077BAB9 /* SeasonViewController.swift in Sources */,
 				87BA5CED222A6B9D0077BAB9 /* Result.swift in Sources */,
 				87BA5CD2222A69E90077BAB9 /* AppDelegate.swift in Sources */,
