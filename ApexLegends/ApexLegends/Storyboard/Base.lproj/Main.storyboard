@@ -91,13 +91,54 @@
                     <view key="view" contentMode="scaleToFill" id="Y49-ar-anH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PZQ-iD-9Iu">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="Mdv-OR-E0l">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="9aF-xu-GK1">
+                                            <connections>
+                                                <action selector="backButtonClick:" destination="vlo-pI-DLK" id="FhI-1y-12Z"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9eq-3C-zfx">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fFH-lz-F7a">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vlo-pI-DLK" id="pwv-zE-aCo"/>
+                                    <outlet property="delegate" destination="vlo-pI-DLK" id="ENa-uE-NBK"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PZQ-iD-9Iu" firstAttribute="leading" secondItem="aN6-2B-r2d" secondAttribute="leading" id="Eef-sP-ahg"/>
+                            <constraint firstItem="aN6-2B-r2d" firstAttribute="trailing" secondItem="9eq-3C-zfx" secondAttribute="trailing" id="IXL-Sz-2eC"/>
+                            <constraint firstItem="9eq-3C-zfx" firstAttribute="top" secondItem="PZQ-iD-9Iu" secondAttribute="bottom" id="Rzr-li-3Hm"/>
+                            <constraint firstItem="PZQ-iD-9Iu" firstAttribute="trailing" secondItem="aN6-2B-r2d" secondAttribute="trailing" id="aDk-2R-srI"/>
+                            <constraint firstItem="PZQ-iD-9Iu" firstAttribute="top" secondItem="aN6-2B-r2d" secondAttribute="top" id="cPx-kk-xgT"/>
+                            <constraint firstItem="9eq-3C-zfx" firstAttribute="leading" secondItem="aN6-2B-r2d" secondAttribute="leading" id="oPj-wq-7Zu"/>
+                            <constraint firstItem="aN6-2B-r2d" firstAttribute="bottom" secondItem="9eq-3C-zfx" secondAttribute="bottom" id="tkp-Fa-d2K"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="aN6-2B-r2d"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="9eq-3C-zfx" id="M3Z-ff-k7p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Xd-ah-xw6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1832" y="125"/>
+            <point key="canvasLocation" x="1687" y="125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BqJ-ZG-BWg">
@@ -118,6 +159,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LifeLine" width="497" height="892"/>
+        <image name="LifeLine" width="372.75" height="669"/>
     </resources>
 </document>
