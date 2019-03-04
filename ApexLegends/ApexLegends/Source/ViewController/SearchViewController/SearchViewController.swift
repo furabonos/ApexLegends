@@ -46,30 +46,31 @@ class SearchViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(setSeasonTitle(notification:)), name: Notification.Name("seasonTitle"), object: nil)
         
         platformBtn.snp.makeConstraints { (m) in
-            m.width.equalTo(80)
+            m.width.equalTo((view.frame.width - 50) / 4)
             m.height.equalTo(30)
             m.top.equalTo(bgImageView.snp.top).offset(40)
             m.left.equalTo(view.snp.left).offset(10)
         }
         seasonBtn.snp.makeConstraints { (m) in
-            m.width.equalTo(80)
+            m.width.equalTo((view.frame.width - 50) / 4)
             m.height.equalTo(30)
             m.top.equalTo(bgImageView.snp.top).offset(40)
             m.left.equalTo(platformBtn.snp.right).offset(10)
         }
         
         textField.snp.makeConstraints { (m) in
-            m.width.equalTo(120)
+            m.width.equalTo((view.frame.width - 50) / 4)
             m.height.equalTo(30)
             m.top.equalTo(seasonBtn.snp.top)
             m.left.equalTo(seasonBtn.snp.right).offset(10)
         }
         
         searchBtn.snp.makeConstraints { (m) in
-            m.width.equalTo(80)
+            m.width.equalTo((view.frame.width - 50) / 4)
             m.height.equalTo(30)
             m.top.equalTo(textField.snp.top)
             m.left.equalTo(textField.snp.right).offset(10)
+            m.right.equalTo(view.snp.right).offset(-10)
         }
         
         
