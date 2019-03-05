@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		564D65A8222CC734000D726D /* StatsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564D65A6222CC734000D726D /* StatsHeader.swift */; };
-		564D65A9222CC734000D726D /* StatsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 564D65A7222CC734000D726D /* StatsHeader.xib */; };
 		564D65AD222CCAB1000D726D /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564D65AB222CCAB1000D726D /* ResultCell.swift */; };
 		564D65AE222CCAB1000D726D /* ResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 564D65AC222CCAB1000D726D /* ResultCell.xib */; };
 		564D65B1222D0310000D726D /* StatHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564D65AF222D0310000D726D /* StatHeader.swift */; };
@@ -28,8 +26,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		564D65A6222CC734000D726D /* StatsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsHeader.swift; sourceTree = "<group>"; };
-		564D65A7222CC734000D726D /* StatsHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsHeader.xib; sourceTree = "<group>"; };
 		564D65AB222CCAB1000D726D /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 		564D65AC222CCAB1000D726D /* ResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultCell.xib; sourceTree = "<group>"; };
 		564D65AF222D0310000D726D /* StatHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatHeader.swift; sourceTree = "<group>"; };
@@ -84,8 +80,6 @@
 		564D65A5222CC6CB000D726D /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				564D65A6222CC734000D726D /* StatsHeader.swift */,
-				564D65A7222CC734000D726D /* StatsHeader.xib */,
 				564D65AF222D0310000D726D /* StatHeader.swift */,
 				564D65B0222D0310000D726D /* StatHeader.xib */,
 			);
@@ -296,7 +290,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				564D65A9222CC734000D726D /* StatsHeader.xib in Resources */,
 				87BA5CDC222A69EA0077BAB9 /* LaunchScreen.storyboard in Resources */,
 				87BA5CD9222A69EA0077BAB9 /* Assets.xcassets in Resources */,
 				87BA5CD7222A69E90077BAB9 /* Main.storyboard in Resources */,
@@ -332,9 +325,10 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ApexLegends/Pods-ApexLegends-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ApexLegends/Pods-ApexLegends-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Popover/Popover.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -343,13 +337,14 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Popover.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApexLegends/Pods-ApexLegends-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ApexLegends/Pods-ApexLegends-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -365,7 +360,6 @@
 				87BA5CEB222A6B940077BAB9 /* Apex.swift in Sources */,
 				87BA5CFB222BB4CA0077BAB9 /* ResultViewController.swift in Sources */,
 				87BA5CF9222BA8CF0077BAB9 /* SeasonViewController.swift in Sources */,
-				564D65A8222CC734000D726D /* StatsHeader.swift in Sources */,
 				87BA5CED222A6B9D0077BAB9 /* Result.swift in Sources */,
 				87BA5CD2222A69E90077BAB9 /* AppDelegate.swift in Sources */,
 				564D65AD222CCAB1000D726D /* ResultCell.swift in Sources */,

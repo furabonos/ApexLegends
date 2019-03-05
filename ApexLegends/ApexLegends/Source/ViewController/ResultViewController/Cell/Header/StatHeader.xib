@@ -52,8 +52,8 @@
                         <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HEADSHOTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIg-2h-tbp">
-                        <rect key="frame" x="390" y="101" width="101" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HEADSHOT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIg-2h-tbp">
+                        <rect key="frame" x="390" y="101" width="91" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -80,17 +80,36 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="nit-uu-eHy">
+                        <rect key="frame" x="20" y="189" width="94" height="2"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="tintColor" red="0.83529411760000005" green="0.13725490200000001" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="trackTintColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </progressView>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="hfs-p4-y4n">
+                        <rect key="frame" x="128" y="192" width="110" height="2"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="tintColor" red="0.83529411760000005" green="0.13725490200000001" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </progressView>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="RPV-wr-5Pl">
+                        <rect key="frame" x="260" y="194" width="110" height="2"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="tintColor" red="0.83529411760000005" green="0.13725490200000001" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </progressView>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="558" height="459"/>
             <connections>
+                <outlet property="damageBar" destination="RPV-wr-5Pl" id="Svt-yj-Vwi"/>
                 <outlet property="damageLabel" destination="XxZ-Cq-4oA" id="ZKh-kY-uBi"/>
                 <outlet property="damageValueLabel" destination="Ypx-rH-hfl" id="vbv-Es-jWp"/>
                 <outlet property="headshotLabel" destination="OIg-2h-tbp" id="Iq0-FY-i24"/>
+                <outlet property="killBar" destination="hfs-p4-y4n" id="OIX-7A-Uh1"/>
                 <outlet property="killLabel" destination="s1h-51-iyw" id="pgj-DX-vc0"/>
                 <outlet property="killValueLabel" destination="tht-4W-wUV" id="NMi-So-rfX"/>
+                <outlet property="levelBar" destination="nit-uu-eHy" id="SnX-fe-zrz"/>
                 <outlet property="levelLabel" destination="uqR-qk-RQg" id="hEM-iD-EY0"/>
                 <outlet property="levelValueLabel" destination="DH1-x6-Sx9" id="owe-Qi-uFh"/>
                 <outlet property="lifetimeLabel" destination="pBo-sj-gLh" id="rcb-Qn-PKU"/>

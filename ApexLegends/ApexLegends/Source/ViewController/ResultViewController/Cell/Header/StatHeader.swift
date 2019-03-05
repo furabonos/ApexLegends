@@ -33,6 +33,18 @@ class StatHeader: UICollectionViewCell {
     
     @IBOutlet weak var damageValueLabel: UILabel!
     
+    
+    @IBOutlet weak var levelBar: UIProgressView!
+    
+    
+    @IBOutlet weak var killBar: UIProgressView!
+    
+    @IBOutlet weak var damageBar: UIProgressView!
+    
+    let viewWidth = UIScreen.main.bounds.size.width
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupInitialize()
@@ -53,42 +65,46 @@ class StatHeader: UICollectionViewCell {
             m.top.equalTo(lifetimeLabel.snp.bottom)
             m.left.equalTo(lifetimeLabel.snp.left).offset(15)
         }
+        
 //        levelLabel.backgroundColor = .yellow
 //        killLabel.backgroundColor = .red
 //        damageLabel.backgroundColor = .green
 //        headshotLabel.backgroundColor = .yellow
+        
         levelLabel.snp.makeConstraints { (m) in
-            m.width.equalTo(50)
+//            m.width.equalTo(50)
+            m.width.equalTo((viewWidth - 50) / 4)
             m.height.equalTo(30)
             m.top.equalTo(redBar.snp.bottom).offset(30)
             m.left.equalTo(redBar.snp.left)
         }
         
         killLabel.snp.makeConstraints { (m) in
-            m.width.equalTo(45)
+            m.width.equalTo((viewWidth - 50) / 4)
             m.height.equalTo(30)
             m.top.equalTo(levelLabel.snp.top)
-            m.left.equalTo(levelLabel.snp.right).offset(30)
+            m.left.equalTo(levelLabel.snp.right).offset(10)
         }
         
         damageLabel.snp.makeConstraints { (m) in
-            m.width.equalTo(70)
+            m.width.equalTo((viewWidth - 50) / 4)
             m.height.equalTo(30)
             m.top.equalTo(levelLabel.snp.top)
-            m.left.equalTo(killLabel.snp.right).offset(30)
+            m.left.equalTo(killLabel.snp.right).offset(10)
         }
-        
+        headshotLabel.adjustsFontSizeToFitWidth = true
         headshotLabel.snp.makeConstraints { (m) in
-            m.width.equalTo(105)
+            m.width.equalTo((viewWidth - 50) / 4)
             m.height.equalTo(30)
             m.top.equalTo(levelLabel.snp.top)
-            m.left.equalTo(damageLabel.snp.right).offset(30)
+            m.left.equalTo(damageLabel.snp.right).offset(10)
+            m.right.equalTo(self.contentView.snp.right).offset(-10)
         }
 //        levelValueLabel.backgroundColor = .yellow
 //        levelValueLabel.adjustsFontSizeToFitWidth = true
         levelValueLabel.snp.makeConstraints { (m) in
             m.left.equalTo(levelLabel.snp.left)
-            m.top.equalTo(levelLabel.snp.bottom).offset(10)
+            m.top.equalTo(levelLabel.snp.bottom).offset(5)
             m.width.equalTo(70)
             m.height.equalTo(40)
         }
@@ -97,7 +113,7 @@ class StatHeader: UICollectionViewCell {
         killValueLabel.adjustsFontSizeToFitWidth = true
         killValueLabel.snp.makeConstraints { (m) in
             m.left.equalTo(killLabel.snp.left)
-            m.top.equalTo(levelLabel.snp.bottom).offset(10)
+            m.top.equalTo(levelLabel.snp.bottom).offset(5)
             m.width.equalTo(70)
             m.height.equalTo(40)
         }
@@ -106,9 +122,30 @@ class StatHeader: UICollectionViewCell {
 //        damageValueLabel.backgroundColor = .red
         damageValueLabel.snp.makeConstraints { (m) in
             m.left.equalTo(damageLabel.snp.left)
-            m.top.equalTo(levelLabel.snp.bottom).offset(10)
+            m.top.equalTo(levelLabel.snp.bottom).offset(5)
             m.width.equalTo(90)
             m.height.equalTo(40)
+        }
+        
+        levelBar.snp.makeConstraints { (m) in
+            m.left.equalTo(levelLabel.snp.left)
+            m.top.equalTo(levelValueLabel.snp.bottom).offset(10)
+            m.right.equalTo(killLabel.snp.left).offset(-10)
+            m.height.equalTo(2)
+        }
+        
+        killBar.snp.makeConstraints { (m) in
+            m.left.equalTo(killLabel.snp.left)
+            m.top.equalTo(killValueLabel.snp.bottom).offset(10)
+            m.height.equalTo(2)
+            m.right.equalTo(damageLabel.snp.left).offset(-10)
+        }
+        
+        damageBar.snp.makeConstraints { (m) in
+            m.left.equalTo(damageLabel.snp.left)
+            m.height.equalTo(2)
+            m.top.equalTo(damageValueLabel.snp.bottom).offset(10)
+            m.right.equalTo(headshotLabel.snp.left).offset(-10)
         }
     }
 

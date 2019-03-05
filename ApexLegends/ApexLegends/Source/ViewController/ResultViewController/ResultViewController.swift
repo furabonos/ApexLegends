@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class ResultViewController: UIViewController {
     
@@ -20,6 +21,7 @@ class ResultViewController: UIViewController {
     
     //UI
     @IBOutlet weak var collectionView: UICollectionView!
+    private var activityView: NVActivityIndicatorView!
     let aarr = ["aa", "bb", "cc"]
     
     //Delegate
@@ -28,6 +30,12 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInitialize()
+        setupActivityIndicator()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        activityView.startAnimating()
     }
     
     func setupInitialize() {
@@ -38,9 +46,11 @@ class ResultViewController: UIViewController {
                 self.stats = value.data.stats
                 self.childStats = value.data.children
                 self.collectionView.reloadData()
-                print("ssip = \(self.stats[0].displayValue)")
+                self.activityView.stopAnimating()
+//                print("ssip = \(self.stats[0].displayValue)")
             case .failure(let error):
                 print(error)
+                self.activityView.stopAnimating()
             }
         }
         
@@ -52,6 +62,14 @@ class ResultViewController: UIViewController {
             forCellWithReuseIdentifier: "ResultCell"
         )
 
+    }
+    
+    private func setupActivityIndicator() {
+        activityView = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x - 50, y: self.view.center.y - 50, width: 100, height: 100), type: NVActivityIndicatorType.ballBeat, color: UIColor(red: 0/255.0, green: 132/255.0, blue: 137/255.0, alpha: 1), padding: 25)
+        
+        activityView.backgroundColor = .white
+        activityView.layer.cornerRadius = 10
+        self.view.addSubview(activityView)
     }
     
     @IBAction func backButtonClick(_ sender: Any) {
@@ -80,6 +98,15 @@ extension ResultViewController: UICollectionViewDataSource {
             header.levelValueLabel.text = stats[0].displayValue
             header.killValueLabel.text = stats[1].displayValue
             header.damageValueLabel.text = stats[2].displayValue
+            
+            var levelValue = Double(stats[0].percentile) * 0.01
+            var killValue = Double(stats[1].percentile) * 0.01
+            var damageValue = Double(stats[2].percentile) * 0.01
+            
+            header.levelBar.progress = Float(levelValue)
+            header.killBar.progress = Float(killValue)
+            header.damageBar.progress = Float(damageValue)
+            
         }
         return header
     }
@@ -92,6 +119,6 @@ extension ResultViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 300)
+        return CGSize(width: view.frame.width, height: 200)
     }
 }

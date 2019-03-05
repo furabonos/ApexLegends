@@ -32,7 +32,7 @@ class SearchViewController: UIViewController {
     }
     
     func setupInitialize() {
-        
+        print("ssip = \(view.frame.width)")
         platformBtn.layer.cornerRadius = 10
         seasonBtn.layer.cornerRadius = 10
         searchBtn.layer.cornerRadius = 10
@@ -72,7 +72,6 @@ class SearchViewController: UIViewController {
             m.left.equalTo(textField.snp.right).offset(10)
             m.right.equalTo(view.snp.right).offset(-10)
         }
-                git 
         
     }
     
