@@ -11,6 +11,8 @@
 		564D65AE222CCAB1000D726D /* ResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 564D65AC222CCAB1000D726D /* ResultCell.xib */; };
 		564D65B1222D0310000D726D /* StatHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564D65AF222D0310000D726D /* StatHeader.swift */; };
 		564D65B2222D0310000D726D /* StatHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 564D65B0222D0310000D726D /* StatHeader.xib */; };
+		56E33EC6222E62680081B91A /* HoonFuture Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56E33EC5222E62510081B91A /* HoonFuture Regular.ttf */; };
+		56E33EC8222E70B50081B91A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E33EC7222E70B50081B91A /* Extension.swift */; };
 		87BA5CD2222A69E90077BAB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA5CD1222A69E90077BAB9 /* AppDelegate.swift */; };
 		87BA5CD7222A69E90077BAB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87BA5CD5222A69E90077BAB9 /* Main.storyboard */; };
 		87BA5CD9222A69EA0077BAB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87BA5CD8222A69EA0077BAB9 /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 		564D65AC222CCAB1000D726D /* ResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultCell.xib; sourceTree = "<group>"; };
 		564D65AF222D0310000D726D /* StatHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatHeader.swift; sourceTree = "<group>"; };
 		564D65B0222D0310000D726D /* StatHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatHeader.xib; sourceTree = "<group>"; };
+		56E33EC5222E62510081B91A /* HoonFuture Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HoonFuture Regular.ttf"; sourceTree = "<group>"; };
+		56E33EC7222E70B50081B91A /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = ApexLegends/Source/ViewController/ResultViewController/Cell/Header/Extension.swift; sourceTree = SOURCE_ROOT; };
 		77745458A854F88D50D915D2 /* Pods-ApexLegends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApexLegends.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApexLegends/Pods-ApexLegends.release.xcconfig"; sourceTree = "<group>"; };
 		87BA5CCE222A69E90077BAB9 /* ApexLegends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApexLegends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87BA5CD1222A69E90077BAB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				87BA5CDD222A69EA0077BAB9 /* Info.plist */,
+				56E33EC5222E62510081B91A /* HoonFuture Regular.ttf */,
 			);
 			path = "Suppoting Files";
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 		87BA5CE7222A6ADA0077BAB9 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				56E33EC7222E70B50081B91A /* Extension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 				87BA5CDC222A69EA0077BAB9 /* LaunchScreen.storyboard in Resources */,
 				87BA5CD9222A69EA0077BAB9 /* Assets.xcassets in Resources */,
 				87BA5CD7222A69E90077BAB9 /* Main.storyboard in Resources */,
+				56E33EC6222E62680081B91A /* HoonFuture Regular.ttf in Resources */,
 				564D65B2222D0310000D726D /* StatHeader.xib in Resources */,
 				564D65AE222CCAB1000D726D /* ResultCell.xib in Resources */,
 			);
@@ -358,6 +365,7 @@
 				564D65B1222D0310000D726D /* StatHeader.swift in Sources */,
 				87BA5CF6222A74410077BAB9 /* PlatformViewController.swift in Sources */,
 				87BA5CEB222A6B940077BAB9 /* Apex.swift in Sources */,
+				56E33EC8222E70B50081B91A /* Extension.swift in Sources */,
 				87BA5CFB222BB4CA0077BAB9 /* ResultViewController.swift in Sources */,
 				87BA5CF9222BA8CF0077BAB9 /* SeasonViewController.swift in Sources */,
 				87BA5CED222A6B9D0077BAB9 /* Result.swift in Sources */,

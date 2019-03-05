@@ -13,28 +13,33 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ResultCell" id="gTV-IL-0wX" customClass="ResultCell" customModule="ApexLegends" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="473" height="193"/>
+            <rect key="frame" x="0.0" y="0.0" width="457" height="284"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="473" height="193"/>
+                <rect key="frame" x="0.0" y="0.0" width="457" height="284"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ei-Q5-1v5">
-                        <rect key="frame" x="215.5" y="86" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LIFELINE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v75-DL-rpm">
+                        <rect key="frame" x="20" y="26" width="75" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                        <color key="textColor" red="0.83529411760000005" green="0.13725490200000001" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lqh-Hr-xE5">
+                        <rect key="frame" x="20" y="67" width="131" height="150"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
                 </subviews>
             </view>
-            <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <constraints>
-                <constraint firstItem="8ei-Q5-1v5" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="crg-9X-R8H"/>
-                <constraint firstItem="8ei-Q5-1v5" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="hez-fQ-GZP"/>
-            </constraints>
+            <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="473" height="193"/>
-            <point key="canvasLocation" x="220" y="95.802098950524751"/>
+            <size key="customSize" width="457" height="284"/>
+            <connections>
+                <outlet property="champImageView" destination="lqh-Hr-xE5" id="hpb-4z-kPb"/>
+                <outlet property="nameLabel" destination="v75-DL-rpm" id="g3S-1z-Ahp"/>
+            </connections>
+            <point key="canvasLocation" x="-402.39999999999998" y="7.1964017991004505"/>
         </collectionViewCell>
     </objects>
 </document>

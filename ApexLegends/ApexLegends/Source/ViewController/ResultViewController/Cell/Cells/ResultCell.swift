@@ -7,12 +7,40 @@
 //
 
 import UIKit
+import SnapKit
 
 class ResultCell: UICollectionViewCell {
+    
+    
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var champImageView: UIImageView!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupInitialize()
+    }
+    
+    func setupInitialize() {
+        
+        nameLabel.snp.makeConstraints { (m) in
+            m.top.equalTo(self.contentView.snp.top).offset(10)
+            m.left.equalTo(self.contentView.snp.left).offset(10)
+            m.width.equalTo(130)
+            m.height.equalTo(30)
+        }
+        champImageView.backgroundColor = .red
+        champImageView.clipsToBounds = true
+//        champImageView.contentMode = .as
+        
+        champImageView.snp.makeConstraints { (m) in
+            m.top.equalTo(nameLabel.snp.bottom).offset(15)
+            m.left.equalTo(self.contentView.snp.left)
+            m.width.equalTo(130)
+            m.bottom.equalTo(self.contentView.snp.bottom)
+        }
     }
 
 }

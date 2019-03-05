@@ -8,6 +8,7 @@
 
 import UIKit
 import NVActivityIndicatorView
+import Kingfisher
 
 class ResultViewController: UIViewController {
     
@@ -16,8 +17,8 @@ class ResultViewController: UIViewController {
     var platform = String()
     
     //Apex Data
-    var stats: [Stats] = [] // 통합스탯
-    var childStats: [Children] = [] //캐릭별 스탯
+    var stats: [Stats?] = [] // 통합스탯
+    var childStats: [Children]? = [] //캐릭별 스탯
     
     //UI
     @IBOutlet weak var collectionView: UICollectionView!
@@ -55,6 +56,8 @@ class ResultViewController: UIViewController {
         }
         
         //UI
+        collectionView.backgroundColor = .black
+        
         collectionView.register(UINib(nibName: "StatHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "StatHeader")
         
         collectionView.register(
@@ -81,11 +84,21 @@ class ResultViewController: UIViewController {
 extension ResultViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return aarr.count
+        if (childStats?.count)! > 0 {
+            return childStats!.count
+        }else {
+            return 0
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ResultCell", for: indexPath) as! ResultCell
+        if (childStats?.count)! > 0 {
+//            var url = URL(string: childStats[indexPath.row].metadata.icon)
+            cell.nameLabel.text = childStats?[indexPath.row].metadata.legendName
+            cell.champImageView.kf.setImage(with: URL(string: childStats?[indexPath.row].metadata.icon ?? ""))
+        }
         return cell
 
     }
@@ -94,19 +107,11 @@ extension ResultViewController: UICollectionViewDataSource {
         String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier:
             "StatHeader", for: indexPath) as! StatHeader
-        if stats.count > 0 {
-            header.levelValueLabel.text = stats[0].displayValue
-            header.killValueLabel.text = stats[1].displayValue
-            header.damageValueLabel.text = stats[2].displayValue
-            
-            var levelValue = Double(stats[0].percentile) * 0.01
-            var killValue = Double(stats[1].percentile) * 0.01
-            var damageValue = Double(stats[2].percentile) * 0.01
-            
-            header.levelBar.progress = Float(levelValue)
-            header.killBar.progress = Float(killValue)
-            header.damageBar.progress = Float(damageValue)
-            
+        if (stats.count) > 0 {
+            header.levelValueLabel.text = stats[0]?.displayValue ?? ""
+            header.killValueLabel.text = stats[1]?.displayValue ?? ""
+            header.damageValueLabel.text = stats[safe: 2]??.displayValue ?? ""
+
         }
         return header
     }
@@ -115,10 +120,11 @@ extension ResultViewController: UICollectionViewDataSource {
 extension ResultViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 100)
+        return CGSize(width: view.frame.width, height: 200)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 200)
+        return CGSize(width: view.frame.width, height: 230)
     }
+    
 }
