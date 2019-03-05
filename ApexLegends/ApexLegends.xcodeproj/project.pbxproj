@@ -12,7 +12,7 @@
 		564D65B1222D0310000D726D /* StatHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564D65AF222D0310000D726D /* StatHeader.swift */; };
 		564D65B2222D0310000D726D /* StatHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 564D65B0222D0310000D726D /* StatHeader.xib */; };
 		56E33EC6222E62680081B91A /* HoonFuture Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56E33EC5222E62510081B91A /* HoonFuture Regular.ttf */; };
-		56E33EC8222E70B50081B91A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E33EC7222E70B50081B91A /* Extension.swift */; };
+		56E33ECB222E71F10081B91A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E33ECA222E71F10081B91A /* Extension.swift */; };
 		87BA5CD2222A69E90077BAB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA5CD1222A69E90077BAB9 /* AppDelegate.swift */; };
 		87BA5CD7222A69E90077BAB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87BA5CD5222A69E90077BAB9 /* Main.storyboard */; };
 		87BA5CD9222A69EA0077BAB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87BA5CD8222A69EA0077BAB9 /* Assets.xcassets */; };
@@ -33,7 +33,7 @@
 		564D65AF222D0310000D726D /* StatHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatHeader.swift; sourceTree = "<group>"; };
 		564D65B0222D0310000D726D /* StatHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatHeader.xib; sourceTree = "<group>"; };
 		56E33EC5222E62510081B91A /* HoonFuture Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HoonFuture Regular.ttf"; sourceTree = "<group>"; };
-		56E33EC7222E70B50081B91A /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = ApexLegends/Source/ViewController/ResultViewController/Cell/Header/Extension.swift; sourceTree = SOURCE_ROOT; };
+		56E33ECA222E71F10081B91A /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		77745458A854F88D50D915D2 /* Pods-ApexLegends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApexLegends.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApexLegends/Pods-ApexLegends.release.xcconfig"; sourceTree = "<group>"; };
 		87BA5CCE222A69E90077BAB9 /* ApexLegends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApexLegends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87BA5CD1222A69E90077BAB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +99,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		56E33EC9222E71E50081B91A /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				56E33ECA222E71F10081B91A /* Extension.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		87BA5CC5222A69E90077BAB9 = {
 			isa = PBXGroup;
 			children = (
@@ -149,10 +157,10 @@
 		87BA5CE5222A6A980077BAB9 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				56E33EC9222E71E50081B91A /* Utility */,
 				87BA5CD1222A69E90077BAB9 /* AppDelegate.swift */,
 				87BA5CE9222A6AF10077BAB9 /* Model */,
 				87BA5CE8222A6AE80077BAB9 /* Service */,
-				87BA5CE7222A6ADA0077BAB9 /* Utility */,
 				87BA5CE6222A6AD00077BAB9 /* ViewController */,
 			);
 			path = Source;
@@ -165,14 +173,6 @@
 				87BA5CF0222A6BAF0077BAB9 /* ResultViewController */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		87BA5CE7222A6ADA0077BAB9 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				56E33EC7222E70B50081B91A /* Extension.swift */,
-			);
-			path = Utility;
 			sourceTree = "<group>";
 		};
 		87BA5CE8222A6AE80077BAB9 /* Service */ = {
@@ -365,7 +365,7 @@
 				564D65B1222D0310000D726D /* StatHeader.swift in Sources */,
 				87BA5CF6222A74410077BAB9 /* PlatformViewController.swift in Sources */,
 				87BA5CEB222A6B940077BAB9 /* Apex.swift in Sources */,
-				56E33EC8222E70B50081B91A /* Extension.swift in Sources */,
+				56E33ECB222E71F10081B91A /* Extension.swift in Sources */,
 				87BA5CFB222BB4CA0077BAB9 /* ResultViewController.swift in Sources */,
 				87BA5CF9222BA8CF0077BAB9 /* SeasonViewController.swift in Sources */,
 				87BA5CED222A6B9D0077BAB9 /* Result.swift in Sources */,
