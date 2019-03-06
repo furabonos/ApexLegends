@@ -51,10 +51,10 @@ struct Children: Decodable {
 struct ChildStats: Decodable {
     var displayValue: String
     var displayRank: String
-    var percentile: Int
+//    var percentile: Int
     
     enum CodingKeys: String, CodingKey {
-        case displayValue, displayRank, percentile
+        case displayValue, displayRank//, percentile
     }
 }
 
@@ -72,11 +72,11 @@ struct ChildMetadata: Decodable {
 struct Stats: Decodable {
     var displayValue: String
     var displayRank: String
-    var percentile: Int
+//    var percentile: Int
     var metadata: StatsMetadata
     
     enum CodingKeys: String, CodingKey {
-        case displayValue, displayRank, percentile, metadata
+        case displayValue, displayRank, metadata//, percentile
     }
 }
 

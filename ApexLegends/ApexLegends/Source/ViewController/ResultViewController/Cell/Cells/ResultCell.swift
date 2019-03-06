@@ -31,12 +31,13 @@ class ResultCell: UICollectionViewCell {
             m.width.equalTo(130)
             m.height.equalTo(30)
         }
-        champImageView.backgroundColor = .red
+//        champImageView.backgroundColor = .blue
         champImageView.clipsToBounds = true
 //        champImageView.contentMode = .as
         
         champImageView.snp.makeConstraints { (m) in
-            m.top.equalTo(nameLabel.snp.bottom).offset(15)
+//            m.top.equalTo(nameLabel.snp.bottom).offset(15)
+            m.top.equalTo(self.contentView.snp.top)
             m.left.equalTo(self.contentView.snp.left)
             m.width.equalTo(130)
             m.bottom.equalTo(self.contentView.snp.bottom)

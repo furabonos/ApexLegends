@@ -46,6 +46,7 @@ class ResultViewController: UIViewController {
             case .success(let value):
                 self.stats = value.data.stats
                 self.childStats = value.data.children
+                print("ssip = \(self.stats.count)")
                 self.collectionView.reloadData()
                 self.activityView.stopAnimating()
 //                print("ssip = \(self.stats[0].displayValue)")
@@ -79,6 +80,27 @@ class ResultViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    func changeLabel(str: String) -> String {
+        var str2 = str
+        switch str {
+        case "Kills Per Match": str2 = "Kills/Match"
+        case "Damage Per Match": str2 = "Dmg/Match"
+        case "Matches Played": str2 = "Match Played"
+        case "Winning Kills": str2 = "WinningKill"
+        default:
+            break
+        }
+        return str2
+    }
+    
+    func plusSharp(str: String) -> String {
+        if str != "" {
+            return  "#\(str)"
+        }else {
+            return  str
+        }
+    }
+    
 }
 
 extension ResultViewController: UICollectionViewDataSource {
@@ -108,10 +130,29 @@ extension ResultViewController: UICollectionViewDataSource {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier:
             "StatHeader", for: indexPath) as! StatHeader
         if (stats.count) > 0 {
-            header.levelValueLabel.text = stats[0]?.displayValue ?? ""
-            header.killValueLabel.text = stats[1]?.displayValue ?? ""
-            header.damageValueLabel.text = stats[safe: 2]??.displayValue ?? ""
-
+            header.num1Label.text = changeLabel(str: stats[safe: 0]??.metadata.name ?? "")
+            header.num2Label.text = changeLabel(str: stats[safe: 1]??.metadata.name ?? "")
+            header.num3Label.text = changeLabel(str: stats[safe: 2]??.metadata.name ?? "")
+            header.num4Label.text = changeLabel(str: stats[safe: 3]??.metadata.name ?? "")
+            header.num5Label.text = changeLabel(str: stats[safe: 4]??.metadata.name ?? "")
+            header.num6Label.text = changeLabel(str: stats[safe: 5]??.metadata.name ?? "")
+            header.num7Label.text = changeLabel(str: stats[safe: 6]??.metadata.name ?? "")
+            
+            header.num1ValueLabel.text = stats[safe: 0]??.displayValue ?? ""
+            header.num2ValueLabel.text = stats[safe: 1]??.displayValue ?? ""
+            header.num3ValueLabel.text = stats[safe: 2]??.displayValue ?? ""
+            header.num4ValueLabel.text = stats[safe: 3]??.displayValue ?? ""
+            header.num5ValueLabel.text = stats[safe: 4]??.displayValue ?? ""
+            header.num6ValueLabel.text = stats[safe: 5]??.displayValue ?? ""
+            header.num7ValueLabel.text = stats[safe: 6]??.displayValue ?? ""
+            
+            header.num1RankLabel.text = plusSharp(str: stats[safe: 0]??.displayRank ?? "")
+            header.num2RankLabel.text = plusSharp(str: stats[safe: 1]??.displayRank ?? "")
+            header.num3RankLabel.text = plusSharp(str: stats[safe: 2]??.displayRank ?? "")
+            header.num4RankLabel.text = plusSharp(str: stats[safe: 3]??.displayRank ?? "")
+            header.num5RankLabel.text = plusSharp(str: stats[safe: 4]??.displayRank ?? "")
+            header.num6RankLabel.text = plusSharp(str: stats[safe: 5]??.displayRank ?? "")
+            header.num7RankLabel.text = plusSharp(str: stats[safe: 6]??.displayRank ?? "")
         }
         return header
     }
@@ -124,7 +165,14 @@ extension ResultViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 230)
+        if stats.count == 0 {
+            return CGSize(width: view.frame.width, height: 0)
+        }else if stats.count >= 5 {
+            return CGSize(width: view.frame.width, height: 300)
+        }else {
+            return CGSize(width: view.frame.width, height: 230)
+        }
+        
     }
     
 }
