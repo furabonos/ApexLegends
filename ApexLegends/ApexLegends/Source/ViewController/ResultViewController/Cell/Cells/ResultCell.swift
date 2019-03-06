@@ -11,13 +11,25 @@ import SnapKit
 
 class ResultCell: UICollectionViewCell {
     
-    
-    
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var champImageView: UIImageView!
     
-
+    @IBOutlet weak var num1Label: UILabel!
+    @IBOutlet weak var num2Label: UILabel!
+    @IBOutlet weak var num3Label: UILabel!
+    @IBOutlet weak var num4Label: UILabel!
+    
+    @IBOutlet weak var num1ValueLabel: UILabel!
+    @IBOutlet weak var num2ValueLabel: UILabel!
+    @IBOutlet weak var num3ValueLabel: UILabel!
+    @IBOutlet weak var num4ValueLabel: UILabel!
+    
+    @IBOutlet weak var num1RankLabel: UILabel!
+    
+    
+    
+    let viewWidth = UIScreen.main.bounds.size.width
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupInitialize()
@@ -25,22 +37,110 @@ class ResultCell: UICollectionViewCell {
     
     func setupInitialize() {
         
+        var cellWidth = viewWidth - champImageView.frame.width
+        
+//        num1Label.sizeToFit()
+//        num2Label.sizeToFit()
+//        num3Label.sizeToFit()
+//        num4Label.sizeToFit()
+        
+        num1Label.adjustsFontSizeToFitWidth = true
+        num2Label.adjustsFontSizeToFitWidth = true
+        num3Label.adjustsFontSizeToFitWidth = true
+        num4Label.adjustsFontSizeToFitWidth = true
+        
+//        num1ValueLabel.sizeToFit()
+//        num2ValueLabel.sizeToFit()
+//        num3ValueLabel.sizeToFit()
+//        num4ValueLabel.sizeToFit()
+        num1ValueLabel.adjustsFontSizeToFitWidth = true
+        num2ValueLabel.adjustsFontSizeToFitWidth = true
+        num3ValueLabel.adjustsFontSizeToFitWidth = true
+        num4ValueLabel.adjustsFontSizeToFitWidth = true
+        
+        num1RankLabel.adjustsFontSizeToFitWidth = true
+        
+        
         nameLabel.snp.makeConstraints { (m) in
             m.top.equalTo(self.contentView.snp.top).offset(10)
             m.left.equalTo(self.contentView.snp.left).offset(10)
             m.width.equalTo(130)
             m.height.equalTo(30)
         }
-//        champImageView.backgroundColor = .blue
-        champImageView.clipsToBounds = true
-//        champImageView.contentMode = .as
         
+        champImageView.contentMode = .scaleAspectFill
         champImageView.snp.makeConstraints { (m) in
-//            m.top.equalTo(nameLabel.snp.bottom).offset(15)
-            m.top.equalTo(self.contentView.snp.top)
-            m.left.equalTo(self.contentView.snp.left)
+            m.top.equalTo(nameLabel.snp.bottom)
+            m.top.equalTo(self.contentView.snp.top).offset(25)
+            m.left.equalTo(self.contentView.snp.left).offset(-10)
             m.width.equalTo(130)
-            m.bottom.equalTo(self.contentView.snp.bottom)
+            m.bottom.equalTo(self.contentView.snp.bottom).offset(20)
+        }
+
+        num1Label.snp.makeConstraints { (m) in
+            m.left.equalTo(champImageView.snp.right)
+            m.top.equalTo(self.contentView.snp.top).offset(40)
+            m.height.equalTo(20)
+//            m.width.greaterThanOrEqualTo(cellWidth / 4)
+
+        }
+
+        num2Label.snp.makeConstraints { (m) in
+            m.top.equalTo(self.contentView.snp.top).offset(40)
+            m.height.equalTo(20)
+            m.left.equalTo(num1Label.snp.right).offset(10)
+            m.width.greaterThanOrEqualTo(cellWidth / 4)
+        }
+    
+        num3Label.snp.makeConstraints { (m) in
+            m.top.equalTo(self.contentView.snp.top).offset(40)
+            m.height.equalTo(20)
+            m.left.equalTo(num2Label.snp.right).offset(10)
+            m.width.greaterThanOrEqualTo(cellWidth / 4)
+        }
+
+        
+        num4Label.snp.makeConstraints { (m) in
+            m.top.equalTo(self.contentView.snp.top).offset(40)
+            m.height.equalTo(20)
+            m.left.equalTo(num3Label.snp.right).offset(10)
+            m.width.greaterThanOrEqualTo(cellWidth / 4)
+            m.right.equalTo(self.contentView.snp.right).offset(-10)
+        }
+//        num1ValueLabel.backgroundColor = .red
+        num1ValueLabel.snp.makeConstraints { (m) in
+            m.height.equalTo(30)
+            m.top.equalTo(num1Label.snp.bottom)
+            m.left.equalTo(num1Label.snp.left)
+            m.right.equalTo(num2ValueLabel.snp.left).offset(-5)
+        }
+        
+        num2ValueLabel.snp.makeConstraints { (m) in
+            m.height.equalTo(30)
+            m.top.equalTo(num2Label.snp.bottom)
+            m.left.equalTo(num2Label.snp.left)
+            m.width.equalTo((cellWidth / 4) - 15)
+        }
+        
+        num3ValueLabel.snp.makeConstraints { (m) in
+            m.height.equalTo(30)
+            m.top.equalTo(num3Label.snp.bottom)
+            m.left.equalTo(num3Label.snp.left)
+            m.width.equalTo((cellWidth / 4) - 15)
+        }
+        
+        num4ValueLabel.snp.makeConstraints { (m) in
+            m.height.equalTo(30)
+            m.top.equalTo(num4Label.snp.bottom)
+            m.left.equalTo(num4Label.snp.left)
+            m.width.equalTo((cellWidth / 4) - 15)
+        }
+        
+        num1RankLabel.snp.makeConstraints { (m) in
+            m.top.equalTo(num1ValueLabel.snp.bottom)
+            m.left.equalTo(num1Label.snp.left)
+            m.height.equalTo(20)
+            m.width.equalTo(num1Label.snp.width)
         }
     }
 

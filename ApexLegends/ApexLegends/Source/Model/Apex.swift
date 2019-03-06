@@ -51,10 +51,19 @@ struct Children: Decodable {
 struct ChildStats: Decodable {
     var displayValue: String
     var displayRank: String
+    var metadata: CharacterMetadata
 //    var percentile: Int
     
     enum CodingKeys: String, CodingKey {
-        case displayValue, displayRank//, percentile
+        case displayValue, displayRank, metadata//, percentile
+    }
+}
+
+struct CharacterMetadata: Decodable {
+    var name: String
+    
+    enum CodingKeys: String, CodingKey {
+        case name
     }
 }
 

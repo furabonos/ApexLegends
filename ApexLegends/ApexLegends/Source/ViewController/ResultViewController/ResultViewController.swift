@@ -18,12 +18,12 @@ class ResultViewController: UIViewController {
     
     //Apex Data
     var stats: [Stats?] = [] // 통합스탯
-    var childStats: [Children]? = [] //캐릭별 스탯
+    var childStats: [Children?] = [] //캐릭별 스탯
     
     //UI
     @IBOutlet weak var collectionView: UICollectionView!
     private var activityView: NVActivityIndicatorView!
-    let aarr = ["aa", "bb", "cc"]
+    @IBOutlet weak var naviBar: UINavigationBar!
     
     //Delegate
     private let apexService: ApexServiceType = ApexService()
@@ -57,6 +57,7 @@ class ResultViewController: UIViewController {
         }
         
         //UI
+        naviBar.topItem?.title = id
         collectionView.backgroundColor = .black
         
         collectionView.register(UINib(nibName: "StatHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "StatHeader")
@@ -87,6 +88,8 @@ class ResultViewController: UIViewController {
         case "Damage Per Match": str2 = "Dmg/Match"
         case "Matches Played": str2 = "Match Played"
         case "Winning Kills": str2 = "WinningKill"
+        case "Care Package Kills": str2 = "Care PKG Kill"
+        case "Legend Specific 2": str2 = "LGD Specific 2"
         default:
             break
         }
@@ -106,8 +109,8 @@ class ResultViewController: UIViewController {
 extension ResultViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if (childStats?.count)! > 0 {
-            return childStats!.count
+        if (childStats.count) > 0 {
+            return childStats.count
         }else {
             return 0
         }
@@ -116,10 +119,23 @@ extension ResultViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ResultCell", for: indexPath) as! ResultCell
-        if (childStats?.count)! > 0 {
-//            var url = URL(string: childStats[indexPath.row].metadata.icon)
-            cell.nameLabel.text = childStats?[indexPath.row].metadata.legendName
-            cell.champImageView.kf.setImage(with: URL(string: childStats?[indexPath.row].metadata.icon ?? ""))
+        if (childStats.count) > 0 {
+            cell.nameLabel.text = childStats[indexPath.row]?.metadata.legendName
+            cell.champImageView.kf.setImage(with: URL(string: childStats[indexPath.row]?.metadata.icon ?? ""))
+            
+            cell.num1Label.text = changeLabel(str: childStats[safe: indexPath.row]??.stats[safe: 0]?.metadata.name ?? "")
+            cell.num2Label.text = changeLabel(str: childStats[safe: indexPath.row]??.stats[safe: 1]?.metadata.name ?? "")
+            cell.num3Label.text = changeLabel(str: childStats[safe: indexPath.row]??.stats[safe: 2]?.metadata.name ?? "")
+            cell.num4Label.text = changeLabel(str: childStats[safe: indexPath.row]??.stats[safe: 3]?.metadata.name ?? "")
+            
+            cell.num1ValueLabel.text = childStats[safe: indexPath.row]??.stats[safe: 0]?.displayValue ?? ""
+            cell.num2ValueLabel.text = childStats[safe: indexPath.row]??.stats[safe: 1]?.displayValue ?? ""
+            cell.num3ValueLabel.text = childStats[safe: indexPath.row]??.stats[safe: 2]?.displayValue ?? ""
+            cell.num4ValueLabel.text = childStats[safe: indexPath.row]??.stats[safe: 3]?.displayValue ?? ""
+            
+            cell.num1RankLabel.text = plusSharp(str: childStats[safe: indexPath.row]??.stats[safe: 0]?.displayRank ?? "")
+            
+
         }
         return cell
 
@@ -168,7 +184,7 @@ extension ResultViewController: UICollectionViewDelegateFlowLayout {
         if stats.count == 0 {
             return CGSize(width: view.frame.width, height: 0)
         }else if stats.count >= 5 {
-            return CGSize(width: view.frame.width, height: 300)
+            return CGSize(width: view.frame.width, height: 280)
         }else {
             return CGSize(width: view.frame.width, height: 230)
         }

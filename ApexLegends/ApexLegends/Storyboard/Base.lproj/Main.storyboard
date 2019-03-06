@@ -134,6 +134,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="9eq-3C-zfx" id="M3Z-ff-k7p"/>
+                        <outlet property="naviBar" destination="PZQ-iD-9Iu" id="NXR-Zz-Gp2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Xd-ah-xw6" userLabel="First Responder" sceneMemberID="firstResponder"/>
