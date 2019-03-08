@@ -13,9 +13,10 @@
 		564D65B2222D0310000D726D /* StatHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 564D65B0222D0310000D726D /* StatHeader.xib */; };
 		56E33EC6222E62680081B91A /* HoonFuture Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56E33EC5222E62510081B91A /* HoonFuture Regular.ttf */; };
 		56E33ECB222E71F10081B91A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E33ECA222E71F10081B91A /* Extension.swift */; };
+		56E33ECD2230E96E0081B91A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56E33ECC2230E96E0081B91A /* Assets.xcassets */; };
+		56E33ECF223101EB0081B91A /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E33ECE223101EB0081B91A /* Method.swift */; };
 		87BA5CD2222A69E90077BAB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA5CD1222A69E90077BAB9 /* AppDelegate.swift */; };
 		87BA5CD7222A69E90077BAB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87BA5CD5222A69E90077BAB9 /* Main.storyboard */; };
-		87BA5CD9222A69EA0077BAB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87BA5CD8222A69EA0077BAB9 /* Assets.xcassets */; };
 		87BA5CDC222A69EA0077BAB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87BA5CDA222A69EA0077BAB9 /* LaunchScreen.storyboard */; };
 		87BA5CEB222A6B940077BAB9 /* Apex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA5CEA222A6B940077BAB9 /* Apex.swift */; };
 		87BA5CED222A6B9D0077BAB9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA5CEC222A6B9D0077BAB9 /* Result.swift */; };
@@ -34,11 +35,12 @@
 		564D65B0222D0310000D726D /* StatHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatHeader.xib; sourceTree = "<group>"; };
 		56E33EC5222E62510081B91A /* HoonFuture Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HoonFuture Regular.ttf"; sourceTree = "<group>"; };
 		56E33ECA222E71F10081B91A /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		56E33ECC2230E96E0081B91A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		56E33ECE223101EB0081B91A /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		77745458A854F88D50D915D2 /* Pods-ApexLegends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApexLegends.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApexLegends/Pods-ApexLegends.release.xcconfig"; sourceTree = "<group>"; };
 		87BA5CCE222A69E90077BAB9 /* ApexLegends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApexLegends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87BA5CD1222A69E90077BAB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87BA5CD6222A69E90077BAB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		87BA5CD8222A69EA0077BAB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87BA5CDB222A69EA0077BAB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87BA5CDD222A69EA0077BAB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87BA5CEA222A6B940077BAB9 /* Apex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apex.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				56E33ECA222E71F10081B91A /* Extension.swift */,
+				56E33ECE223101EB0081B91A /* Method.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -131,7 +134,6 @@
 				87BA5CE5222A6A980077BAB9 /* Source */,
 				87BA5CE4222A6A8A0077BAB9 /* Storyboard */,
 				87BA5CE3222A6A750077BAB9 /* Suppoting Files */,
-				87BA5CD8222A69EA0077BAB9 /* Assets.xcassets */,
 				87BA5CDA222A69EA0077BAB9 /* LaunchScreen.storyboard */,
 			);
 			path = ApexLegends;
@@ -140,6 +142,7 @@
 		87BA5CE3222A6A750077BAB9 /* Suppoting Files */ = {
 			isa = PBXGroup;
 			children = (
+				56E33ECC2230E96E0081B91A /* Assets.xcassets */,
 				87BA5CDD222A69EA0077BAB9 /* Info.plist */,
 				56E33EC5222E62510081B91A /* HoonFuture Regular.ttf */,
 			);
@@ -297,10 +300,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				87BA5CDC222A69EA0077BAB9 /* LaunchScreen.storyboard in Resources */,
-				87BA5CD9222A69EA0077BAB9 /* Assets.xcassets in Resources */,
 				87BA5CD7222A69E90077BAB9 /* Main.storyboard in Resources */,
 				56E33EC6222E62680081B91A /* HoonFuture Regular.ttf in Resources */,
 				564D65B2222D0310000D726D /* StatHeader.xib in Resources */,
+				56E33ECD2230E96E0081B91A /* Assets.xcassets in Resources */,
 				564D65AE222CCAB1000D726D /* ResultCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +372,7 @@
 				87BA5CFB222BB4CA0077BAB9 /* ResultViewController.swift in Sources */,
 				87BA5CF9222BA8CF0077BAB9 /* SeasonViewController.swift in Sources */,
 				87BA5CED222A6B9D0077BAB9 /* Result.swift in Sources */,
+				56E33ECF223101EB0081B91A /* Method.swift in Sources */,
 				87BA5CD2222A69E90077BAB9 /* AppDelegate.swift in Sources */,
 				564D65AD222CCAB1000D726D /* ResultCell.swift in Sources */,
 				87BA5CEF222A6BA70077BAB9 /* ApexService.swift in Sources */,

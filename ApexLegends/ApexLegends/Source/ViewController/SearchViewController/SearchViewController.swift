@@ -31,8 +31,23 @@ class SearchViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    func flipImageLeftRight(_ image: UIImage) -> UIImage? {//이미지 좌우반전
+        UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
+        let context = UIGraphicsGetCurrentContext()!
+        
+        context.translateBy(x: image.size.width, y: image.size.height)
+        context.scaleBy(x: -image.scale, y: -image.scale)
+        context.draw(image.cgImage!, in: CGRect(origin:CGPoint.zero, size: image.size))
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
+        
+    }
+    
     func setupInitialize() {
-        print("ssip = \(view.frame.width)")
+        bgImageView.image = flipImageLeftRight(UIImage(named: "bloodhound") ?? UIImage())
+        
         platformBtn.layer.cornerRadius = 10
         seasonBtn.layer.cornerRadius = 10
         searchBtn.layer.cornerRadius = 10
@@ -48,13 +63,13 @@ class SearchViewController: UIViewController {
         platformBtn.snp.makeConstraints { (m) in
             m.width.equalTo((view.frame.width - 50) / 4)
             m.height.equalTo(30)
-            m.top.equalTo(bgImageView.snp.top).offset(40)
+            m.top.equalTo(bgImageView.snp.top).offset(75)
             m.left.equalTo(view.snp.left).offset(10)
         }
         seasonBtn.snp.makeConstraints { (m) in
             m.width.equalTo((view.frame.width - 50) / 4)
             m.height.equalTo(30)
-            m.top.equalTo(bgImageView.snp.top).offset(40)
+            m.top.equalTo(bgImageView.snp.top).offset(75)
             m.left.equalTo(platformBtn.snp.right).offset(10)
         }
         
@@ -113,16 +128,21 @@ class SearchViewController: UIViewController {
         default:
             break
         }
+        if textField.text?.count == 0 || platform == "Platform" {
+            self.present(Method.alert(type: .Search), animated: true)
+        }else {
+            guard let id = textField.text else { return }
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let resultViewController = self.storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
+            
+            resultViewController.id = id
+            resultViewController.platform = platformNum
+            
+            self.navigationController?.pushViewController(resultViewController, animated: true)
+        }
 //        guard let season = seasonBtn.title(for: .normal) else { return }
-        guard let id = textField.text else { return }
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let resultViewController = self.storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
-        
-        resultViewController.id = id
-        resultViewController.platform = platformNum
-        
-        self.navigationController?.pushViewController(resultViewController, animated: true)
     }
     
 }

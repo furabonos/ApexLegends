@@ -16,7 +16,7 @@ protocol ApexServiceType {
 struct ApexService: ApexServiceType {
     
     func searchApex(id: String, platform: String, completion: @escaping (Result<Apex>) -> ()) {
-        print("start")
+//        print("start")
         let apiKey = "d13d95e0-b2ac-477b-9cf7-584d3dd5174b"
         let apiURL = "https://public-api.tracker.gg/apex/v1/standard/profile/\(platform)/\(id)"
         
@@ -37,7 +37,11 @@ struct ApexService: ApexServiceType {
                         completion(.failure(nil, error))
                     }
                 case .failure(let error):
-                    print("ssip error = \(error)")
+                    DispatchQueue.main.async {
+                        ResultViewController().present(Method.alert(type: .Search), animated: true)
+                    }
+                    
+                    print("error = \(error)")
                 }
         }
     }

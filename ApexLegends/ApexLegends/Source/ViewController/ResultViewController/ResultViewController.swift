@@ -46,13 +46,14 @@ class ResultViewController: UIViewController {
             case .success(let value):
                 self.stats = value.data.stats
                 self.childStats = value.data.children
-                print("ssip = \(self.stats.count)")
                 self.collectionView.reloadData()
                 self.activityView.stopAnimating()
 //                print("ssip = \(self.stats[0].displayValue)")
             case .failure(let error):
-                print(error)
-                self.activityView.stopAnimating()
+//                print(error)
+                print("ssipbar")
+//                self.present(Method.alert(type: .Result), animated: true)
+//                self.activityView.stopAnimating()
             }
         }
         
@@ -104,6 +105,14 @@ class ResultViewController: UIViewController {
         }
     }
     
+    func deleteRank(str: String) -> String {
+        if str.count >= 5 || str == "" {
+            return ""
+        }else {
+            return "#\(str)"
+        }
+    }
+    
 }
 
 extension ResultViewController: UICollectionViewDataSource {
@@ -127,13 +136,22 @@ extension ResultViewController: UICollectionViewDataSource {
             cell.num2Label.text = changeLabel(str: childStats[safe: indexPath.row]??.stats[safe: 1]?.metadata.name ?? "")
             cell.num3Label.text = changeLabel(str: childStats[safe: indexPath.row]??.stats[safe: 2]?.metadata.name ?? "")
             cell.num4Label.text = changeLabel(str: childStats[safe: indexPath.row]??.stats[safe: 3]?.metadata.name ?? "")
+            cell.num5Label.text = changeLabel(str: childStats[safe: indexPath.row]??.stats[safe: 4]?.metadata.name ?? "")
+            cell.num6Label.text = changeLabel(str: childStats[safe: indexPath.row]??.stats[safe: 5]?.metadata.name ?? "")
             
             cell.num1ValueLabel.text = childStats[safe: indexPath.row]??.stats[safe: 0]?.displayValue ?? ""
             cell.num2ValueLabel.text = childStats[safe: indexPath.row]??.stats[safe: 1]?.displayValue ?? ""
             cell.num3ValueLabel.text = childStats[safe: indexPath.row]??.stats[safe: 2]?.displayValue ?? ""
             cell.num4ValueLabel.text = childStats[safe: indexPath.row]??.stats[safe: 3]?.displayValue ?? ""
+            cell.num5ValueLabel.text = childStats[safe: indexPath.row]??.stats[safe: 4]?.displayValue ?? ""
+            cell.num6ValueLabel.text = childStats[safe: indexPath.row]??.stats[safe: 5]?.displayValue ?? ""
             
             cell.num1RankLabel.text = plusSharp(str: childStats[safe: indexPath.row]??.stats[safe: 0]?.displayRank ?? "")
+            cell.num2RankLabel.text = plusSharp(str: childStats[safe: indexPath.row]??.stats[safe: 1]?.displayRank ?? "")
+            cell.num3RankLabel.text = plusSharp(str: childStats[safe: indexPath.row]??.stats[safe: 2]?.displayRank ?? "")
+            cell.num4RankLabel.text = plusSharp(str: childStats[safe: indexPath.row]??.stats[safe: 3]?.displayRank ?? "")
+            cell.num5RankLabel.text = plusSharp(str: childStats[safe: indexPath.row]??.stats[safe: 4]?.displayRank ?? "")
+            cell.num6RankLabel.text = plusSharp(str: childStats[safe: indexPath.row]??.stats[safe: 5]?.displayRank ?? "")
             
 
         }
