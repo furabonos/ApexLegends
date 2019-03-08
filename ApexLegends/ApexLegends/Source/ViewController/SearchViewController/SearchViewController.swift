@@ -46,7 +46,7 @@ class SearchViewController: UIViewController {
     }
     
     func setupInitialize() {
-        bgImageView.image = flipImageLeftRight(UIImage(named: "bloodhound") ?? UIImage())
+//        bgImageView.image = flipImageLeftRight(UIImage(named: "bloodhound") ?? UIImage())
         
         platformBtn.layer.cornerRadius = 10
         seasonBtn.layer.cornerRadius = 10

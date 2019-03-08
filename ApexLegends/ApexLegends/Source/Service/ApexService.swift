@@ -34,14 +34,11 @@ struct ApexService: ApexServiceType {
 //                        print("aa = \(decodableValue)")
                         completion(Result.success(decodableValue))
                     } catch {
-                        completion(.failure(nil, error))
+                        
                     }
                 case .failure(let error):
-                    DispatchQueue.main.async {
-                        ResultViewController().present(Method.alert(type: .Search), animated: true)
-                    }
-                    
                     print("error = \(error)")
+                    completion(.failure(nil, error))
                 }
         }
     }

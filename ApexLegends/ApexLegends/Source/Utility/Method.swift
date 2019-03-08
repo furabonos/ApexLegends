@@ -25,9 +25,9 @@ class Method: NSObject {
         case .Result:
             let alertController = UIAlertController(title: "알림",message: "ID가 검색이 되지않습니다. \n ID를 다시 확인해주세요.", preferredStyle: UIAlertController.Style.alert)
             let cancelButton = UIAlertAction(title: "확인", style: UIAlertAction.Style.cancel) { (action) in
-                ResultViewController().navigationController?.popViewController(animated: true)
+                let resultVC = ResultViewController()
+                resultVC.navigationController?.popViewController(animated: true)
             }
-            
             alertController.addAction(cancelButton)
             return alertController
 //            self.present(alertController,animated: true,completion: nil)

@@ -51,9 +51,9 @@ class ResultViewController: UIViewController {
 //                print("ssip = \(self.stats[0].displayValue)")
             case .failure(let error):
 //                print(error)
-                print("ssipbar")
+                self.present(Method.alert(type: .Result), animated: true)
 //                self.present(Method.alert(type: .Result), animated: true)
-//                self.activityView.stopAnimating()
+                self.activityView.stopAnimating()
             }
         }
         
