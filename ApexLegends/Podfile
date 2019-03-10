@@ -12,5 +12,7 @@ target 'ApexLegends' do
   pod 'Popover'
   pod 'SwiftyJSON'
   pod 'NVActivityIndicatorView'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
 
 end

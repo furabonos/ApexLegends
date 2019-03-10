@@ -101,6 +101,11 @@
                                                 <action selector="backButtonClick:" destination="vlo-pI-DLK" id="FhI-1y-12Z"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="star" id="CeH-Lk-eUe">
+                                            <connections>
+                                                <action selector="bookmarkClick:" destination="vlo-pI-DLK" id="rbs-Ez-h9b"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -133,6 +138,7 @@
                         <viewLayoutGuide key="safeArea" id="aN6-2B-r2d"/>
                     </view>
                     <connections>
+                        <outlet property="bookmarkBtn" destination="CeH-Lk-eUe" id="TbR-v5-E56"/>
                         <outlet property="collectionView" destination="9eq-3C-zfx" id="M3Z-ff-k7p"/>
                         <outlet property="naviBar" destination="PZQ-iD-9Iu" id="NXR-Zz-Gp2"/>
                     </connections>
@@ -161,5 +167,6 @@
     </scenes>
     <resources>
         <image name="bloodhound" width="640" height="1138"/>
+        <image name="star" width="23" height="23"/>
     </resources>
 </document>

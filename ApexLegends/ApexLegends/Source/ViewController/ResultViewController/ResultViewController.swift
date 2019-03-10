@@ -9,6 +9,8 @@
 import UIKit
 import NVActivityIndicatorView
 import Kingfisher
+import FirebaseDatabase
+import Firebase
 
 class ResultViewController: UIViewController {
     
@@ -22,8 +24,12 @@ class ResultViewController: UIViewController {
     
     //UI
     @IBOutlet weak var collectionView: UICollectionView!
-    private var activityView: NVActivityIndicatorView!
     @IBOutlet weak var naviBar: UINavigationBar!
+    @IBOutlet weak var bookmarkBtn: UIBarButtonItem!
+    private var activityView: NVActivityIndicatorView!
+    
+    //Data
+    var ref = Database.database().reference()
     
     //Delegate
     private let apexService: ApexServiceType = ApexService()
@@ -67,7 +73,29 @@ class ResultViewController: UIViewController {
             UINib(nibName: "ResultCell", bundle: nil),
             forCellWithReuseIdentifier: "ResultCell"
         )
+        
+        requestBookmark(id: id)
 
+    }
+    
+    func requestBookmark(id: String) {
+        let ref = Database.database().reference().child("ApexExam2").child(id)
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            print("here = \(snapshot.value)")
+            guard let dictionaries = snapshot.value as? [String: Any] else { return }//데이터베이스에 저장된 자료가져옴.
+            print("ssip = \(dictionaries)")
+//            print("here2")
+//            dictionaries.forEach({ (key, value) in
+//                guard let dictionary = value as? [String: Any] else { return }
+//                let username = dictionary["username"] as! String//사진url
+//                print("ssip = \(username)")
+////                let post = Post(user: user, dictionary: dictionary)
+////                self.posts.append(post)//자료를 따로 포스트 모델로 가져옴?
+//            })
+
+        }) { (err) in
+            print("fail to fetch posts = \(err)")
+        }
     }
     
     private func setupActivityIndicator() {
@@ -81,6 +109,23 @@ class ResultViewController: UIViewController {
     @IBAction func backButtonClick(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func bookmarkClick(_ sender: Any) {
+        let apexRef = Database.database().reference().child("ApexExam2")
+        let ref = apexRef.child(id)
+        let values = ["username": id] as [String: Any]
+        
+        ref.updateChildValues(values){ (err, ref) in
+            if let err = err {
+                self.present(Method.alert(type: .Fail), animated: true)
+                print("fail updateValue = \(err)")
+                return
+            }
+            print("success update values")
+            self.present(Method.alert(type: .Success), animated: true)
+        }
+    }
+    
     
     func changeLabel(str: String) -> String {
         var str2 = str

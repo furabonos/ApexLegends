@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import FirebaseDatabase
 
 class SearchViewController: UIViewController {
 
