@@ -22,10 +22,32 @@ class SearchViewController: UIViewController {
     //VC
     var platformViewController = PlatformViewController()
     var seasonViewController = SeasonViewController()
+    var favViewController = FavViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInitialize()
+        requestFavUser()
+    }
+    
+    func requestFavUser() {
+        let ref = Database.database().reference().child("ApexExam").childByAutoId()
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+//            guard let dictionaries = snapshot.value as? [String: String] else { return }//데이터베이스에 저장된 자료가져옴.
+            print("ssip = \(snapshot.value)")
+            //            print("ssip = \(dictionaries["username"] as! String)")
+            //            print("here2")
+            //            dictionaries.forEach({ (key, value) in
+            //                guard let dictionary = value as? [String: Any] else { return }
+            //                let username = dictionary["username"] as! String//사진url
+            //                print("ssip = \(username)")
+            ////                let post = Post(user: user, dictionary: dictionary)
+            ////                self.posts.append(post)//자료를 따로 포스트 모델로 가져옴?
+            //            })
+            
+        }) { (err) in
+            print("fail to fetch posts = \(err)")
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -109,7 +131,8 @@ class SearchViewController: UIViewController {
     //Button Action
     @IBAction func platformBtnClick(_ sender: Any) {
         DispatchQueue.main.async {
-            self.platformViewController.makePopover(sender: self.platformBtn)
+//            self.platformViewController.makePopover(sender: self.platformBtn)
+            self.favViewController.makePopover(sender: self.platformBtn)
         }
     }
     
@@ -120,16 +143,7 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func searchBtnClick(_ sender: Any) {
-        guard let platform = platformBtn.title(for: .normal) else { return }
-        var platformNum = String()
-        switch platform {
-        case "PC": platformNum = "5"
-        case "XBOX": platformNum = "1"
-        case "PSN": platformNum = "2"
-        default:
-            break
-        }
-        if textField.text?.count == 0 || platform == "Platform" {
+        if textField.text?.count == 0 {
             self.present(Method.alert(type: .Search), animated: true)
         }else {
             guard let id = textField.text else { return }
@@ -138,7 +152,7 @@ class SearchViewController: UIViewController {
             let resultViewController = self.storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
             
             resultViewController.id = id
-            resultViewController.platform = platformNum
+            resultViewController.platform = "5"
             
             self.navigationController?.pushViewController(resultViewController, animated: true)
         }

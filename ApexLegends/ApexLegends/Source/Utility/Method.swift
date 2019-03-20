@@ -13,13 +13,14 @@ enum Types {
     case Result
     case Fail
     case Success
+    case DelSuccess
 }
 
 class Method: NSObject {
     static func alert(type: Types) -> UIAlertController {
         switch type {
         case .Search:
-            let alertController = UIAlertController(title: "알림",message: "ID 혹은 플랫폼이 입력되지 않았습니다. \n 다시한번 확인해주세요", preferredStyle: UIAlertController.Style.alert)
+            let alertController = UIAlertController(title: "알림",message: "ID가 입력되지 않았습니다. \n 다시한번 확인해주세요", preferredStyle: UIAlertController.Style.alert)
             let cancelButton = UIAlertAction(title: "확인", style: UIAlertAction.Style.cancel, handler: nil)
             alertController.addAction(cancelButton)
             return alertController
@@ -41,6 +42,14 @@ class Method: NSObject {
             return alertController
         case .Success:
             let alertController = UIAlertController(title: "알림",message: "즐겨찾기에 추가되었습니다.", preferredStyle: UIAlertController.Style.alert)
+            let cancelButton = UIAlertAction(title: "확인", style: UIAlertAction.Style.cancel) { (action) in
+                let resultVC = ResultViewController()
+                resultVC.navigationController?.popViewController(animated: true)
+            }
+            alertController.addAction(cancelButton)
+            return alertController
+        case .DelSuccess:
+            let alertController = UIAlertController(title: "알림",message: "즐겨찾기에서 삭제되었습니다.", preferredStyle: UIAlertController.Style.alert)
             let cancelButton = UIAlertAction(title: "확인", style: UIAlertAction.Style.cancel) { (action) in
                 let resultVC = ResultViewController()
                 resultVC.navigationController?.popViewController(animated: true)

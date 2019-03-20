@@ -79,11 +79,17 @@ class ResultViewController: UIViewController {
     }
     
     func requestBookmark(id: String) {
-        let ref = Database.database().reference().child("ApexExam2").child(id)
+        let ref = Database.database().reference().child("ApexFavUser").child(id)
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
-            print("here = \(snapshot.value)")
-            guard let dictionaries = snapshot.value as? [String: Any] else { return }//데이터베이스에 저장된 자료가져옴.
-            print("ssip = \(dictionaries)")
+//            guard let dictionaries = snapshot.value as? [String: String] else { return }//데이터베이스에 저장된 자료가져옴.
+            if let dictionaries = snapshot.value as? [String: String] {
+               print("yes user")
+                self.bookmarkBtn.image = UIImage(named: "blackstar")
+            }else {
+                print("no user")
+                self.bookmarkBtn.image = UIImage(named: "star")
+            }
+//            print("ssip = \(dictionaries["username"] as! String)")
 //            print("here2")
 //            dictionaries.forEach({ (key, value) in
 //                guard let dictionary = value as? [String: Any] else { return }
@@ -111,19 +117,33 @@ class ResultViewController: UIViewController {
     }
     
     @IBAction func bookmarkClick(_ sender: Any) {
-        let apexRef = Database.database().reference().child("ApexExam2")
-        let ref = apexRef.child(id)
+        let apexRef = Database.database().reference().child("ApexExam")
+//        let ref = apexRef.child(id)
+        let ref = apexRef.childByAutoId()
         let values = ["username": id] as [String: Any]
         
-        ref.updateChildValues(values){ (err, ref) in
-            if let err = err {
-                self.present(Method.alert(type: .Fail), animated: true)
-                print("fail updateValue = \(err)")
-                return
+        if bookmarkBtn.image == UIImage(named: "star") {
+            //즐겨찾기 추가하지 않은 상태
+            ref.updateChildValues(values){ (err, ref) in
+                if let err = err {
+                    self.present(Method.alert(type: .Fail), animated: true)
+                    print("fail updateValue = \(err)")
+                    return
+                }
+                print("success update values")
+                self.present(Method.alert(type: .Success), animated: true, completion: {
+                    self.bookmarkBtn.image = UIImage(named: "blackstar")
+                })
             }
-            print("success update values")
-            self.present(Method.alert(type: .Success), animated: true)
+        }else {
+           //즐겨찾기 추가되어있는 상태
+            ref.removeValue()
+            self.present(Method.alert(type: .DelSuccess), animated: true, completion: {
+                self.bookmarkBtn.image = UIImage(named: "star")
+            })
+            
         }
+        
     }
     
     
