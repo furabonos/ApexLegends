@@ -24,31 +24,21 @@ class SearchViewController: UIViewController {
     var seasonViewController = SeasonViewController()
     var favViewController = FavViewController()
     
+    //ETC
+    var userArr = Array<String>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInitialize()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         requestFavUser()
     }
     
-    func requestFavUser() {
-        let ref = Database.database().reference().child("ApexExam").childByAutoId()
-        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-//            guard let dictionaries = snapshot.value as? [String: String] else { return }//데이터베이스에 저장된 자료가져옴.
-            print("ssip = \(snapshot.value)")
-            //            print("ssip = \(dictionaries["username"] as! String)")
-            //            print("here2")
-            //            dictionaries.forEach({ (key, value) in
-            //                guard let dictionary = value as? [String: Any] else { return }
-            //                let username = dictionary["username"] as! String//사진url
-            //                print("ssip = \(username)")
-            ////                let post = Post(user: user, dictionary: dictionary)
-            ////                self.posts.append(post)//자료를 따로 포스트 모델로 가져옴?
-            //            })
-            
-        }) { (err) in
-            print("fail to fetch posts = \(err)")
-        }
-    }
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
@@ -111,13 +101,44 @@ class SearchViewController: UIViewController {
             m.right.equalTo(view.snp.right).offset(-10)
         }
         
+        //FavUser
+//        requestFavUser()
+        
+    }
+    
+    func requestFavUser() {
+        userArr.removeAll()
+        let ref = Database.database().reference().child("ApexFavUser").child(UIDevice.getDeviceId())
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            //            print("ssip = \(snapshot.value)")
+            guard let dictionaries = snapshot.value as? [String: Any] else { return }//데이터베이스에 저장된 자료가져옴.
+            
+            dictionaries.forEach({ (key, value) in
+                guard let dictionary = value as? [String: Any] else { return }
+                let username = dictionary["username"] as! String//사진url
+//                self.userArr.removeAll()
+                self.userArr.append(username)
+                
+            })
+            
+        }) { (err) in
+            print("fail to fetch posts = \(err)")
+        }
     }
     
     //Popover Notification
     @objc func setPlatformTitle(notification: Notification) {
         guard let notificationInfo = notification.userInfo as? [String: String] else { return }
         guard let platformTitle = notificationInfo["title"] else { return }
-        platformBtn.setTitle(platformTitle, for: .normal)
+        print("ssip = \(platformTitle)")
+//        platformBtn.setTitle(platformTitle, for: .normal)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let resultViewController = self.storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
+        
+        resultViewController.id = platformTitle
+        resultViewController.platform = "5"
+        
+        self.navigationController?.pushViewController(resultViewController, animated: true)
         
     }
     
@@ -132,6 +153,7 @@ class SearchViewController: UIViewController {
     @IBAction func platformBtnClick(_ sender: Any) {
         DispatchQueue.main.async {
 //            self.platformViewController.makePopover(sender: self.platformBtn)
+            self.favViewController.favArr = self.userArr
             self.favViewController.makePopover(sender: self.platformBtn)
         }
     }

@@ -15,7 +15,6 @@
 		56E33ECB222E71F10081B91A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E33ECA222E71F10081B91A /* Extension.swift */; };
 		56E33ECD2230E96E0081B91A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56E33ECC2230E96E0081B91A /* Assets.xcassets */; };
 		56E33ECF223101EB0081B91A /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E33ECE223101EB0081B91A /* Method.swift */; };
-		874A411D2234F823003B0363 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874A411C2234F823003B0363 /* Bookmark.swift */; };
 		874A4120223E2309003B0363 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874A411F223E2309003B0363 /* FavViewController.swift */; };
 		87669E692234DDA600C574E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87669E682234DDA600C574E0 /* GoogleService-Info.plist */; };
 		87BA5CD2222A69E90077BAB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA5CD1222A69E90077BAB9 /* AppDelegate.swift */; };
@@ -41,7 +40,6 @@
 		56E33ECC2230E96E0081B91A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56E33ECE223101EB0081B91A /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		77745458A854F88D50D915D2 /* Pods-ApexLegends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApexLegends.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApexLegends/Pods-ApexLegends.release.xcconfig"; sourceTree = "<group>"; };
-		874A411C2234F823003B0363 /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		874A411F223E2309003B0363 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
 		87669E682234DDA600C574E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		87BA5CCE222A69E90077BAB9 /* ApexLegends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApexLegends.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,7 +204,6 @@
 			children = (
 				87BA5CEA222A6B940077BAB9 /* Apex.swift */,
 				87BA5CEC222A6B9D0077BAB9 /* Result.swift */,
-				874A411C2234F823003B0363 /* Bookmark.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -398,7 +395,6 @@
 				87BA5CF9222BA8CF0077BAB9 /* SeasonViewController.swift in Sources */,
 				87BA5CED222A6B9D0077BAB9 /* Result.swift in Sources */,
 				56E33ECF223101EB0081B91A /* Method.swift in Sources */,
-				874A411D2234F823003B0363 /* Bookmark.swift in Sources */,
 				87BA5CD2222A69E90077BAB9 /* AppDelegate.swift in Sources */,
 				564D65AD222CCAB1000D726D /* ResultCell.swift in Sources */,
 				87BA5CEF222A6BA70077BAB9 /* ApexService.swift in Sources */,

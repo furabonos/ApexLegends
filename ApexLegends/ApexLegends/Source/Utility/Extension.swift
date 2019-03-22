@@ -7,9 +7,20 @@
 //
 
 import Foundation
+import UIKit
 
 extension Array {
     subscript (safe index: Int) -> Element? {
         return indices ~= index ? self[index] : nil
+    }
+}
+
+extension UIDevice {
+    class func getDeviceId() -> String {
+        
+        let deviceId = self.current.identifierForVendor?.uuidString
+        
+        return deviceId!
+        
     }
 }

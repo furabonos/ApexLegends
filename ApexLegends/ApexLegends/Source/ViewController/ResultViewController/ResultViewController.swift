@@ -30,6 +30,7 @@ class ResultViewController: UIViewController {
     
     //Data
     var ref = Database.database().reference()
+    var favUser = Array<String>()
     
     //Delegate
     private let apexService: ApexServiceType = ApexService()
@@ -50,16 +51,21 @@ class ResultViewController: UIViewController {
         apexService.searchApex(id: id, platform: platform) { (result) in
             switch result {
             case .success(let value):
+                
                 self.stats = value.data.stats
                 self.childStats = value.data.children
                 self.collectionView.reloadData()
                 self.activityView.stopAnimating()
-//                print("ssip = \(self.stats[0].displayValue)")
+                
             case .failure(let error):
-//                print(error)
-                self.present(Method.alert(type: .Result), animated: true)
-//                self.present(Method.alert(type: .Result), animated: true)
+                
+                self.present(Method.alert(type: .Result), animated: true, completion: {
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                })
                 self.activityView.stopAnimating()
+                
             }
         }
         
@@ -79,9 +85,8 @@ class ResultViewController: UIViewController {
     }
     
     func requestBookmark(id: String) {
-        let ref = Database.database().reference().child("ApexFavUser").child(id)
+        let ref = Database.database().reference().child("ApexFavUser").child(UIDevice.getDeviceId()).child(id)
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
-//            guard let dictionaries = snapshot.value as? [String: String] else { return }//데이터베이스에 저장된 자료가져옴.
             if let dictionaries = snapshot.value as? [String: String] {
                print("yes user")
                 self.bookmarkBtn.image = UIImage(named: "blackstar")
@@ -89,15 +94,6 @@ class ResultViewController: UIViewController {
                 print("no user")
                 self.bookmarkBtn.image = UIImage(named: "star")
             }
-//            print("ssip = \(dictionaries["username"] as! String)")
-//            print("here2")
-//            dictionaries.forEach({ (key, value) in
-//                guard let dictionary = value as? [String: Any] else { return }
-//                let username = dictionary["username"] as! String//사진url
-//                print("ssip = \(username)")
-////                let post = Post(user: user, dictionary: dictionary)
-////                self.posts.append(post)//자료를 따로 포스트 모델로 가져옴?
-//            })
 
         }) { (err) in
             print("fail to fetch posts = \(err)")
@@ -117,11 +113,10 @@ class ResultViewController: UIViewController {
     }
     
     @IBAction func bookmarkClick(_ sender: Any) {
-        let apexRef = Database.database().reference().child("ApexExam")
-//        let ref = apexRef.child(id)
-        let ref = apexRef.childByAutoId()
+        let apexRef = Database.database().reference().child("ApexFavUser").child(UIDevice.getDeviceId())
+        let ref = apexRef.child(id)
         let values = ["username": id] as [String: Any]
-        
+
         if bookmarkBtn.image == UIImage(named: "star") {
             //즐겨찾기 추가하지 않은 상태
             ref.updateChildValues(values){ (err, ref) in
@@ -141,8 +136,12 @@ class ResultViewController: UIViewController {
             self.present(Method.alert(type: .DelSuccess), animated: true, completion: {
                 self.bookmarkBtn.image = UIImage(named: "star")
             })
-            
+
         }
+        
+    }
+    
+    func favUserCheck(type: Bool, array: Array<String>) {
         
     }
     
