@@ -65,9 +65,10 @@ class SearchViewController: UIViewController {
         seasonBtn.layer.cornerRadius = 10
         searchBtn.layer.cornerRadius = 10
         
-        platformBtn.backgroundColor = .red
-        seasonBtn.backgroundColor = .red
-        searchBtn.backgroundColor = .red
+        platformBtn.backgroundColor = .gray
+        seasonBtn.backgroundColor = .gray
+        searchBtn.backgroundColor = .gray
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(setPlatformTitle(notification:)), name: Notification.Name("platformTitle"), object: nil)
         
