@@ -175,6 +175,7 @@ class SearchViewController: UIViewController {
             
             resultViewController.id = id
             resultViewController.platform = "5"
+            resultViewController.favUser = userArr
             
             self.navigationController?.pushViewController(resultViewController, animated: true)
         }

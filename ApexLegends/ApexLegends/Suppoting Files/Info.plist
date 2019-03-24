@@ -4,7 +4,10 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>HoonFuture Regular_ttf</string>
+		<string>HoonFutureRegular.ttf</string>
+		<string>NeoFobia-Bold.ttf</string>
+		<string>NOSTRESSPERSONALUSE.ttf</string>
+		<string>Rocks Personal Use.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>

@@ -16,6 +16,9 @@
 		56E33ECD2230E96E0081B91A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56E33ECC2230E96E0081B91A /* Assets.xcassets */; };
 		56E33ECF223101EB0081B91A /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E33ECE223101EB0081B91A /* Method.swift */; };
 		874A4120223E2309003B0363 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874A411F223E2309003B0363 /* FavViewController.swift */; };
+		874A412222462954003B0363 /* NeoFobia-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 874A41212246294F003B0363 /* NeoFobia-Bold.ttf */; };
+		874A412422475381003B0363 /* NOSTRESSPERSONALUSE.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 874A41232247535A003B0363 /* NOSTRESSPERSONALUSE.ttf */; };
+		874A412622475482003B0363 /* Rocks Personal Use.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 874A412522475482003B0363 /* Rocks Personal Use.ttf */; };
 		87669E692234DDA600C574E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87669E682234DDA600C574E0 /* GoogleService-Info.plist */; };
 		87BA5CD2222A69E90077BAB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA5CD1222A69E90077BAB9 /* AppDelegate.swift */; };
 		87BA5CD7222A69E90077BAB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87BA5CD5222A69E90077BAB9 /* Main.storyboard */; };
@@ -41,6 +44,9 @@
 		56E33ECE223101EB0081B91A /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		77745458A854F88D50D915D2 /* Pods-ApexLegends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApexLegends.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApexLegends/Pods-ApexLegends.release.xcconfig"; sourceTree = "<group>"; };
 		874A411F223E2309003B0363 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
+		874A41212246294F003B0363 /* NeoFobia-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeoFobia-Bold.ttf"; sourceTree = "<group>"; };
+		874A41232247535A003B0363 /* NOSTRESSPERSONALUSE.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NOSTRESSPERSONALUSE.ttf; sourceTree = "<group>"; };
+		874A412522475482003B0363 /* Rocks Personal Use.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rocks Personal Use.ttf"; sourceTree = "<group>"; };
 		87669E682234DDA600C574E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		87BA5CCE222A69E90077BAB9 /* ApexLegends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApexLegends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87BA5CD1222A69E90077BAB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,7 +162,10 @@
 			isa = PBXGroup;
 			children = (
 				56E33ECC2230E96E0081B91A /* Assets.xcassets */,
+				874A41212246294F003B0363 /* NeoFobia-Bold.ttf */,
+				874A41232247535A003B0363 /* NOSTRESSPERSONALUSE.ttf */,
 				87BA5CDD222A69EA0077BAB9 /* Info.plist */,
+				874A412522475482003B0363 /* Rocks Personal Use.ttf */,
 				56E33EC5222E62510081B91A /* HoonFuture Regular.ttf */,
 			);
 			path = "Suppoting Files";
@@ -314,12 +323,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				87BA5CDC222A69EA0077BAB9 /* LaunchScreen.storyboard in Resources */,
+				874A412622475482003B0363 /* Rocks Personal Use.ttf in Resources */,
 				87BA5CD7222A69E90077BAB9 /* Main.storyboard in Resources */,
 				56E33EC6222E62680081B91A /* HoonFuture Regular.ttf in Resources */,
 				564D65B2222D0310000D726D /* StatHeader.xib in Resources */,
 				56E33ECD2230E96E0081B91A /* Assets.xcassets in Resources */,
 				564D65AE222CCAB1000D726D /* ResultCell.xib in Resources */,
+				874A412222462954003B0363 /* NeoFobia-Bold.ttf in Resources */,
 				87669E692234DDA600C574E0 /* GoogleService-Info.plist in Resources */,
+				874A412422475381003B0363 /* NOSTRESSPERSONALUSE.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

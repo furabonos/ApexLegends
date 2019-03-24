@@ -39,6 +39,7 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
         setupInitialize()
         setupActivityIndicator()
+        print("fav User = \(favUser)")
     }
     
     override func viewWillAppear(_ animated: Bool) {

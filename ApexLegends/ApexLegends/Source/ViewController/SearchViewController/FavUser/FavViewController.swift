@@ -30,7 +30,7 @@ class FavViewController: UIViewController {
         tableView = UITableView(frame: CGRect(x: sender.frame.minX, y: 0, width: 200, height: 200))
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.isScrollEnabled = false
+        tableView.isScrollEnabled = true
         self.popover = Popover(options: self.popoverOptions)
         self.popover.show(tableView, fromView: sender)
         tableView.reloadData()
