@@ -34,6 +34,10 @@ class ResultViewController: UIViewController {
     
     //Delegate
     private let apexService: ApexServiceType = ApexService()
+    
+    //ETC
+    var seasonViewController = SeasonViewController()
+    var statHeader = StatHeader()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +52,9 @@ class ResultViewController: UIViewController {
     }
     
     func setupInitialize() {
+        //Add Noti
+        NotificationCenter.default.addObserver(self, selector: #selector(setSeasonTitle(notification:)), name: Notification.Name("seasonTitle"), object: nil)
+        
         //Call Data
         apexService.searchApex(id: id, platform: platform) { (result) in
             switch result {
@@ -83,6 +90,13 @@ class ResultViewController: UIViewController {
         
         requestBookmark(id: id)
 
+    }
+    
+    //Noti
+    @objc func setSeasonTitle(notification: Notification) {
+        guard let notificationInfo = notification.userInfo as? [String: String] else { return }
+        guard let seasonTitle = notificationInfo["title"] else { return }
+        
     }
     
     func requestBookmark(id: String) {
@@ -228,6 +242,7 @@ extension ResultViewController: UICollectionViewDataSource {
         String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier:
             "StatHeader", for: indexPath) as! StatHeader
+        
         if (stats.count) > 0 {
             header.num1Label.text = changeLabel(str: stats[safe: 0]??.metadata.name ?? "")
             header.num2Label.text = changeLabel(str: stats[safe: 1]??.metadata.name ?? "")
@@ -275,3 +290,4 @@ extension ResultViewController: UICollectionViewDelegateFlowLayout {
     }
     
 }
+

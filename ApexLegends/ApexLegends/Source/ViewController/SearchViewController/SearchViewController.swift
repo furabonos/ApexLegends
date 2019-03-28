@@ -16,12 +16,10 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var platformBtn: UIButton!
-    @IBOutlet weak var seasonBtn: UIButton!
     @IBOutlet weak var searchBtn: UIButton!
     
     //VC
     var platformViewController = PlatformViewController()
-    var seasonViewController = SeasonViewController()
     var favViewController = FavViewController()
     
     //ETC
@@ -62,17 +60,13 @@ class SearchViewController: UIViewController {
 //        bgImageView.image = flipImageLeftRight(UIImage(named: "bloodhound") ?? UIImage())
         
         platformBtn.layer.cornerRadius = 10
-        seasonBtn.layer.cornerRadius = 10
         searchBtn.layer.cornerRadius = 10
         
         platformBtn.backgroundColor = .gray
-        seasonBtn.backgroundColor = .gray
         searchBtn.backgroundColor = .gray
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(setPlatformTitle(notification:)), name: Notification.Name("platformTitle"), object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(setSeasonTitle(notification:)), name: Notification.Name("seasonTitle"), object: nil)
         
         platformBtn.snp.makeConstraints { (m) in
             m.width.equalTo((view.frame.width - 50) / 4)
@@ -80,18 +74,12 @@ class SearchViewController: UIViewController {
             m.top.equalTo(bgImageView.snp.top).offset(75)
             m.left.equalTo(view.snp.left).offset(10)
         }
-        seasonBtn.snp.makeConstraints { (m) in
-            m.width.equalTo((view.frame.width - 50) / 4)
-            m.height.equalTo(30)
-            m.top.equalTo(bgImageView.snp.top).offset(75)
-            m.left.equalTo(platformBtn.snp.right).offset(10)
-        }
-        
+
         textField.snp.makeConstraints { (m) in
-            m.width.equalTo((view.frame.width - 50) / 4)
+//            m.width.equalTo((view.frame.width - 50) / 4)
             m.height.equalTo(30)
-            m.top.equalTo(seasonBtn.snp.top)
-            m.left.equalTo(seasonBtn.snp.right).offset(10)
+            m.top.equalTo(platformBtn.snp.top)
+            m.left.equalTo(platformBtn.snp.right).offset(10)
         }
         
         searchBtn.snp.makeConstraints { (m) in
@@ -143,12 +131,6 @@ class SearchViewController: UIViewController {
         
     }
     
-    @objc func setSeasonTitle(notification: Notification) {
-        guard let notificationInfo = notification.userInfo as? [String: String] else { return }
-        guard let platformTitle = notificationInfo["title"] else { return }
-        seasonBtn.setTitle(platformTitle, for: .normal)
-        
-    }
 
     //Button Action
     @IBAction func platformBtnClick(_ sender: Any) {
@@ -156,12 +138,6 @@ class SearchViewController: UIViewController {
 //            self.platformViewController.makePopover(sender: self.platformBtn)
             self.favViewController.favArr = self.userArr
             self.favViewController.makePopover(sender: self.platformBtn)
-        }
-    }
-    
-    @IBAction func seasonBtnClick(_ sender: Any) {
-        DispatchQueue.main.async {
-            self.seasonViewController.makePopover(sender: self.seasonBtn)
         }
     }
     

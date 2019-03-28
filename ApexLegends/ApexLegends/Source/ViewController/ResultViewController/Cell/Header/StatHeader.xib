@@ -183,6 +183,17 @@
                         <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LA-eF-c24">
+                        <rect key="frame" x="482" y="32" width="30" height="29"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="NeoFobia-Bold" family="Neo Fobia" pointSize="17"/>
+                        <state key="normal" title="시즌">
+                            <color key="titleColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="clickSeasonBtn:" destination="gTV-IL-0wX" eventType="touchUpInside" id="XBJ-Zr-I1o"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -212,6 +223,7 @@
                 <outlet property="num7RankLabel" destination="VTs-5D-FLK" id="Ctz-gQ-LHe"/>
                 <outlet property="num7ValueLabel" destination="QkQ-Dz-Ngo" id="275-GZ-Ae8"/>
                 <outlet property="redBar" destination="o2J-Sw-sBG" id="jeZ-Sy-eEz"/>
+                <outlet property="seasonBtn" destination="0LA-eF-c24" id="NQO-wj-wm6"/>
             </connections>
             <point key="canvasLocation" x="96" y="43"/>
         </collectionViewCell>

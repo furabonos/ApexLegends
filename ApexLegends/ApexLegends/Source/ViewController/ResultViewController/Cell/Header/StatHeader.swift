@@ -41,6 +41,9 @@ class StatHeader: UICollectionViewCell {
     @IBOutlet weak var num6RankLabel: UILabel!
     @IBOutlet weak var num7RankLabel: UILabel!
     
+    @IBOutlet weak var seasonBtn: UIButton!
+    
+    var seasonViewController = SeasonViewController()
     
     
     let viewWidth = UIScreen.main.bounds.size.width
@@ -75,6 +78,9 @@ class StatHeader: UICollectionViewCell {
         num5ValueLabel.adjustsFontSizeToFitWidth = true
         num6ValueLabel.adjustsFontSizeToFitWidth = true
         num7ValueLabel.adjustsFontSizeToFitWidth = true
+        
+        seasonBtn.layer.cornerRadius = 10
+        seasonBtn.backgroundColor = .gray
         
         blackBar.snp.makeConstraints { (m) in
             m.width.equalTo(viewWidth)
@@ -243,7 +249,21 @@ class StatHeader: UICollectionViewCell {
             m.width.equalTo((viewWidth - 50) / 4)
             m.height.equalTo(30)
         }
+        
+        seasonBtn.snp.makeConstraints { (m) in
+            m.width.equalTo((self.contentView.frame.width - 50) / 4)
+            m.height.equalTo(30)
+            m.top.equalTo(lifetimeLabel.snp.top)
+            m.right.equalTo(self.contentView.snp.right).offset(-10)
+        }
 
     }
-
+    
+    @IBAction func clickSeasonBtn(_ sender: Any) {
+//        delegate?.searchSeason()
+        DispatchQueue.main.async {
+            self.seasonViewController.makePopover(sender: self.seasonBtn)
+        }
+    }
+    
 }

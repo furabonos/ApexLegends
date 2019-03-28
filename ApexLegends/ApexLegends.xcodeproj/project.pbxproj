@@ -221,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				87BA5CFA222BB4CA0077BAB9 /* ResultViewController.swift */,
+				87BA5CF7222BA8B50077BAB9 /* Season */,
 				564D65A4222CC6BD000D726D /* Cell */,
 			);
 			path = ResultViewController;
@@ -231,7 +232,6 @@
 			children = (
 				87BA5CF2222A6BDE0077BAB9 /* SearchViewController.swift */,
 				874A411E223E22E7003B0363 /* FavUser */,
-				87BA5CF7222BA8B50077BAB9 /* Season */,
 				87BA5CF4222A74180077BAB9 /* platform */,
 			);
 			path = SearchViewController;

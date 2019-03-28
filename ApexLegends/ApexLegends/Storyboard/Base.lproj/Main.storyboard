@@ -27,17 +27,6 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXP-61-EhO">
-                                <rect key="frame" x="107" y="46" width="30" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NeoFobia-Bold" family="Neo Fobia" pointSize="17"/>
-                                <state key="normal" title="시즌">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="seasonBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5ks-HS-Emu"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WX0-uk-oq1">
                                 <rect key="frame" x="181" y="40" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -87,7 +76,6 @@
                         <outlet property="bgImageView" destination="AB3-If-KZe" id="Il0-HI-2Ub"/>
                         <outlet property="platformBtn" destination="ExB-4D-fmM" id="Un0-qS-JVd"/>
                         <outlet property="searchBtn" destination="vEm-jz-hco" id="fPT-oA-VEM"/>
-                        <outlet property="seasonBtn" destination="kXP-61-EhO" id="ASV-Mq-PTt"/>
                         <outlet property="textField" destination="WX0-uk-oq1" id="CxI-by-Yx2"/>
                     </connections>
                 </viewController>
@@ -178,6 +166,6 @@
     </scenes>
     <resources>
         <image name="apexlogo" width="550" height="550"/>
-        <image name="star" width="23" height="23"/>
+        <image name="star" width="18.399999618530273" height="18.399999618530273"/>
     </resources>
 </document>
